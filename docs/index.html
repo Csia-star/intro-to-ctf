@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>intro-to-ctf · Roadmap</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#101827; --panel2:#161f36; --line:#243049;
+    --fg:#F7FAFC; --muted:#A0AEC0; --cyan:#00D4FF; --purple:#805AD5;
+    --green:#48BB78; --orange:#ED8936; --red:#E53E3E;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#0b1220,#0d1526);color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px 20px 72px}
+  header.hero{background:linear-gradient(135deg,#101827,#1c2540);border:1px solid var(--line);
+    border-radius:16px;padding:28px 26px;position:relative;overflow:hidden}
+  header.hero::after{content:"";position:absolute;left:0;bottom:0;height:6px;width:100%;
+    background:linear-gradient(90deg,var(--cyan) 0 50%,var(--purple) 50% 100%)}
+  .mono{font-family:Consolas,Menlo,monospace}
+  h1{margin:0 0 6px;font-size:30px}
+  h1 .mono{color:var(--cyan)}
+  .sub{color:var(--muted);margin:0 0 4px}
+  .darija{color:#cdd6e6;font-size:14px;margin-top:10px;direction:rtl}
+  .badges{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+  .badge{font-size:12px;padding:4px 10px;border-radius:999px;background:#0d1424;border:1px solid var(--line);color:var(--muted)}
+  .badge b{color:var(--fg)}
+  .progress-card{margin:22px 0;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .bar{height:12px;background:#0d1424;border-radius:999px;overflow:hidden;border:1px solid var(--line);margin-top:10px}
+  .bar>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));transition:width .35s ease}
+  .ptext{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted)}
+  .reset{cursor:pointer;background:transparent;border:1px solid var(--line);color:var(--muted);
+    border-radius:8px;padding:4px 10px;font-size:12px}
+  .reset:hover{color:var(--fg);border-color:var(--cyan)}
+  .grid{display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+  .cat{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .cat summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:12px;user-select:none}
+  .cat summary::-webkit-details-marker{display:none}
+  .num{font-family:Consolas,Menlo,monospace;color:var(--cyan);font-weight:700;font-size:14px;
+    background:#0d1424;border:1px solid var(--line);border-radius:8px;padding:6px 8px;min-width:34px;text-align:center}
+  .cat h3{margin:0;font-size:17px}
+  .cat .plat{color:var(--muted);font-size:12px;margin-top:2px}
+  .cat .chev{margin-left:auto;color:var(--muted);transition:transform .2s}
+  .cat[open] .chev{transform:rotate(90deg)}
+  .body{padding:0 18px 16px;border-top:1px solid var(--line)}
+  .desc{color:#cdd6e6;font-size:14px;margin:12px 0}
+  .ch{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--line);
+    border-radius:10px;margin:8px 0;background:var(--panel2)}
+  .ch input{width:18px;height:18px;accent-color:var(--cyan);cursor:pointer;flex:none}
+  .ch .lvl{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;flex:none}
+  .lvl.e{background:rgba(72,187,120,.15);color:var(--green);border:1px solid var(--green)}
+  .lvl.m{background:rgba(237,147,54,.15);color:var(--orange);border:1px solid var(--orange)}
+  .lvl.h{background:rgba(229,62,62,.15);color:var(--red);border:1px solid var(--red)}
+  .ch .nm{font-size:14px}
+  .ch.done .nm{text-decoration:line-through;color:var(--muted)}
+  .links{margin-top:10px;font-size:13px;display:flex;gap:14px;flex-wrap:wrap}
+  footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+  .note{background:#0d1424;border:1px dashed var(--line);border-radius:10px;padding:12px 14px;color:var(--muted);font-size:13px;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1><span class="mono">&gt; intro-to-ctf_</span></h1>
+    <p class="sub">From zero to your first flag — a beginner roadmap by the CSIA club, ENSA Béni Mellal.</p>
+    <p class="sub">Tick challenges as you solve them. Progress is saved in your browser only.</p>
+    <p class="darija">من الصفر حتى أول flag. سجّل تقدمك وأنت كتحل التحديات.</p>
+    <div class="badges">
+      <span class="badge"><b>9</b> categories</span>
+      <span class="badge"><b>21</b> challenges</span>
+      <span class="badge"><b>100%</b> free platforms</span>
+      <span class="badge">dark mode</span>
+    </div>
+  </header>
+
+  <div class="progress-card">
+    <div class="ptext">
+      <span id="plabel">0 / 21 challenges solved</span>
+      <button class="reset" id="reset">Reset progress</button>
+    </div>
+    <div class="bar"><span id="pbar"></span></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="note">
+    This page is self-contained — no tracking, no external code. Your checkmarks live in this browser (<span class="mono">localStorage</span>) and are never uploaded.
+    To publish it: push the repo to GitHub, then <b>Settings → Pages → deploy from <span class="mono">/docs</span></b>.
+    Challenge details, hints, and writeups are in the repository folders.
+  </div>
+
+  <footer>
+    Made for students of ENSA Béni Mellal · Third-party challenges belong to their owners · Practice only where allowed.
+  </footer>
+</div>
+
+<script>
+const DATA=[
+ {n:"02",name:"Web Exploitation",plat:"PortSwigger Web Security Academy",
+  desc:"HTTP, hidden pages, and SQL injection — break a query with your input, then read data you shouldn't.",
+  ch:[["e","Unprotected admin functionality"],["m","SQLi login bypass"],["h","SQLi UNION data retrieval"]]},
+ {n:"03",name:"Cryptography",plat:"CryptoHack",
+  desc:"Tell encoding from encryption from hashing, then break weak schemes: bases, single-byte XOR, and RSA basics.",
+  ch:[["e","Encoding: ASCII / Hex / Base64"],["m","XOR: single-byte key"],["h","RSA Starter"]]},
+ {n:"04",name:"Forensics",plat:"picoCTF",
+  desc:"A file is just bytes. Read text, metadata, and network captures to recover what's hidden.",
+  ch:[["e","Glory of the Garden (strings)"],["m","So Meta (exiftool)"],["h","Wireshark doo dooo do doo"]]},
+ {n:"05",name:"Steganography",plat:"picoCTF",
+  desc:"Secrets hidden inside images, audio, and documents: fix headers, read LSB bit-planes, unzip Office files.",
+  ch:[["e","tunn3l v1s10n (header)"],["m","St3g0 (LSB / zsteg)"],["h","MacroHard WeakEdge (doc)"]]},
+ {n:"06",name:"Reverse Engineering",plat:"picoCTF",
+  desc:"Understand a program without its source: read it, decompile it (Ghidra), or run it under a debugger (GDB).",
+  ch:[["e","Safe Opener (read source)"],["m","GDB Test Drive (debugger)"],["h","Classic Crackme 0x100 (Ghidra)"]]},
+ {n:"07",name:"Binary Exploitation",plat:"picoCTF (sandboxed)",
+  desc:"Why memory bugs happen: overflow a buffer, then control the return address — all in a practice sandbox.",
+  ch:[["e","buffer overflow 0"],["m","buffer overflow 1"],["h","buffer overflow 2"]]},
+ {n:"08",name:"OSINT",plat:"TryHackMe",
+  desc:"Find answers in public information: image metadata, reverse image search, geolocation, username pivots.",
+  ch:[["e","OhSINT"],["m","Searchlight IMINT"],["h","Sakura Room"]]}
+];
+const LVL={e:"EASY",m:"MED",h:"HARD"};
+const grid=document.getElementById('grid');
+const KEY='introctf-progress-v1';
+let state=JSON.parse(localStorage.getItem(KEY)||'{}');
+let total=0;
+DATA.forEach(cat=>{
+  const det=document.createElement('details');det.className='cat';
+  const sum=document.createElement('summary');
+  sum.innerHTML=`<span class="num">${cat.n}</span><div><h3>${cat.name}</h3><div class="plat">${cat.plat}</div></div><span class="chev">▸</span>`;
+  det.appendChild(sum);
+  const body=document.createElement('div');body.className='body';
+  body.innerHTML=`<p class="desc">${cat.desc}</p>`;
+  cat.ch.forEach((c,i)=>{
+    const id=cat.n+'-'+i;total++;
+    const row=document.createElement('label');row.className='ch'+(state[id]?' done':'');
+    row.innerHTML=`<input type="checkbox" ${state[id]?'checked':''} data-id="${id}">
+      <span class="lvl ${c[0]}">${LVL[c[0]]}</span><span class="nm">${c[1]}</span>`;
+    body.appendChild(row);
+  });
+  det.appendChild(body);
+  grid.appendChild(det);
+});
+function refresh(){
+  const done=Object.values(state).filter(Boolean).length;
+  document.getElementById('pbar').style.width=(done/total*100)+'%';
+  document.getElementById('plabel').textContent=`${done} / ${total} challenges solved`;
+}
+grid.addEventListener('change',e=>{
+  if(e.target.matches('input[type=checkbox]')){
+    const id=e.target.dataset.id;state[id]=e.target.checked;
+    e.target.closest('.ch').classList.toggle('done',e.target.checked);
+    localStorage.setItem(KEY,JSON.stringify(state));refresh();
+  }
+});
+document.getElementById('reset').addEventListener('click',()=>{
+  state={};localStorage.removeItem(KEY);
+  document.querySelectorAll('input[type=checkbox]').forEach(c=>{c.checked=false;c.closest('.ch').classList.remove('done');});
+  refresh();
+});
+refresh();
+</script>
+</body>
+</html>
